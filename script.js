@@ -7,10 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Fade-in effect on scroll using IntersectionObserver
-  const sections = document.querySelectorAll('section');
-  const options = {
-    threshold: 0.2,
-  };
+  const sections = document.querySelectorAll('section.hidden');
+  const options = { threshold: 0.1 };
 
   const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
@@ -22,8 +20,28 @@ document.addEventListener("DOMContentLoaded", () => {
   }, options);
 
   sections.forEach(section => {
-    // Start each section hidden
-    section.classList.add('hidden');
     observer.observe(section);
+  });
+
+  // Modal functionality
+  const resumeModalTrigger = document.querySelector('.resume-modal-trigger');
+  const resumeModal = document.getElementById('resume-modal');
+  const closeModalBtn = document.querySelector('.close-modal');
+
+  // Open modal
+  resumeModalTrigger.addEventListener('click', () => {
+    resumeModal.style.display = 'block';
+  });
+
+  // Close modal
+  closeModalBtn.addEventListener('click', () => {
+    resumeModal.style.display = 'none';
+  });
+
+  // Close modal when clicking outside modal content
+  window.addEventListener('click', (e) => {
+    if (e.target === resumeModal) {
+      resumeModal.style.display = 'none';
+    }
   });
 });

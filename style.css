@@ -1,208 +1,301 @@
-/* Reset & Global Styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  color: #333;
-}
-
-/* Navigation */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #333;
-  padding: 1rem 2rem;
-  position: relative;
-}
-.navbar .logo {
-  color: #fff;
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-.nav-links {
-  list-style: none;
-  display: flex;
-}
-.nav-links li {
-  margin-left: 1.5rem;
-}
-.nav-links a {
-  color: #fff;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-.nav-links a:hover {
-  color: #f0a500;
-}
-
-/* Hamburger Menu for Mobile */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-}
-.hamburger span {
-  background: #fff;
-  height: 3px;
-  width: 25px;
-  margin: 4px 0;
-  transition: all 0.3s;
-}
-
-/* Hero Section */
-.hero {
-  background: url('hero-bg.jpg') no-repeat center center/cover;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: #fff;
-  padding: 0 20px;
-}
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-.hero p {
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-}
-.hero .btn {
-  padding: 0.75rem 1.5rem;
-  background: #f0a500;
-  color: #333;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background 0.3s ease;
-}
-.hero .btn:hover {
-  background: #e0a400;
-}
-
-/* Section Styling */
-section {
-  padding: 60px 20px;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-section h2 {
-  text-align: center;
-  margin-bottom: 2rem;
-  font-size: 2.5rem;
-}
-
-/* Containers for Education, Skills, Experience & Projects */
-.education-container,
-.skills-container,
-.experience-container,
-.projects-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
-}
-.education-item,
-.skill-group,
-.experience-item,
-.project-card {
-  background: #f4f4f4;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  flex: 1 1 300px;
-  max-width: 400px;
-}
-
-/* Contact Form */
-.contact-container {
-  text-align: center;
-}
-.contact-container form {
-  max-width: 500px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-}
-.contact-container input,
-.contact-container textarea {
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-.contact-container button {
-  padding: 10px;
-  border: none;
-  background: #333;
-  color: #fff;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-.contact-container button:hover {
-  background: #555;
-}
-.social-links {
-  margin-top: 1rem;
-}
-.social-links a {
-  margin: 0 10px;
-  text-decoration: none;
-  color: #333;
-  font-weight: bold;
-}
-.social-links a:hover {
-  color: #f0a500;
-}
-
-/* Footer */
-footer {
-  background: #333;
-  color: #fff;
-  text-align: center;
-  padding: 1rem;
-}
-
-/* Fade-in on Scroll */
-.hidden {
-  opacity: 0;
-  transform: translateY(20px);
-}
-.fade-in {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
+/* ===========================
+   1. Reset & Global Styles
+   =========================== */
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  html, body {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    color: #4a3c2f; /* A darker brown to complement the background */
+  }
+  body {
+    /* Full-page background with parallax-like effect */
+    background: url('hero-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+  
+  /* ===========================
+     2. Navigation Bar
+     =========================== */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(184, 146, 108, 0.85); /* Warm brownish background */
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+  }
+  .navbar .logo {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
   .nav-links {
+    list-style: none;
+    display: flex;
+  }
+  .nav-links li {
+    margin-left: 1.5rem;
+  }
+  .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-weight: 600;
+  }
+  .nav-links a:hover {
+    color: #e3c6a7; /* Lighter tone for hover */
+  }
+  
+  /* Hamburger Menu for Mobile */
+  .hamburger {
     display: none;
     flex-direction: column;
-    background: #333;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    padding: 1rem;
+    cursor: pointer;
   }
-  .nav-links.nav-active {
+  .hamburger span {
+    background: #fff;
+    height: 3px;
+    width: 25px;
+    margin: 4px 0;
+    transition: all 0.3s;
+  }
+  
+  /* ===========================
+     3. Hero Section
+     =========================== */
+  .hero {
+    min-height: 100vh;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    padding: 0 20px;
   }
-  .hamburger {
+  .hero-content {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 2rem;
+    border-radius: 10px;
+  }
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  .hero p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+  }
+  .hero-buttons {
     display: flex;
+    gap: 1rem;
+    justify-content: center;
   }
+  .btn {
+    padding: 0.75rem 1.5rem;
+    background: #f5d6ab; /* Lighter gold tone */
+    color: #4a3c2f;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    font-weight: 600;
+  }
+  .btn:hover {
+    background: #e3c6a7; /* Slightly darker hover */
+  }
+  
+  /* ===========================
+     4. Sections
+     =========================== */
+  section {
+    padding: 60px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    margin-bottom: 2rem; /* Spacing between sections */
+    border-radius: 10px;
+  }
+  section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    color: #4a3c2f;
+  }
+  
+  /* ===========================
+     5. Containers & Cards
+     =========================== */
   .education-container,
   .skills-container,
   .experience-container,
   .projects-container {
-    flex-direction: column;
-    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
   }
-}
+  .education-item,
+  .skill-group,
+  .experience-item,
+  .project-card {
+    background: #fdf8f3;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    flex: 1 1 300px;
+    max-width: 400px;
+    color: #4a3c2f;
+  }
+  .experience-item p {
+    margin-top: 0.5rem;
+  }
+  
+  /* ===========================
+     6. Contact Section
+     =========================== */
+  .contact-container {
+    text-align: center;
+  }
+  .contact-container form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .contact-container input,
+  .contact-container textarea {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  .contact-container button {
+    padding: 10px;
+    border: none;
+    background: #4a3c2f;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  .contact-container button:hover {
+    background: #6d4c41;
+  }
+  .social-links {
+    margin-top: 1rem;
+  }
+  .social-links a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #4a3c2f;
+    font-weight: bold;
+  }
+  .social-links a:hover {
+    color: #b8926c;
+  }
+  
+  /* ===========================
+     7. Footer
+     =========================== */
+  footer {
+    text-align: center;
+    padding: 1rem;
+    color: #fff;
+    background: rgba(184, 146, 108, 0.85);
+  }
+  
+  /* ===========================
+     8. Fade-in on Scroll
+     =========================== */
+  .hidden {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  .fade-in {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  
+  /* ===========================
+     9. Resume Modal
+     =========================== */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
+  }
+  .modal-content {
+    position: relative;
+    background-color: #fdf8f3;
+    margin: 5% auto;
+    padding: 1rem;
+    border-radius: 8px;
+    max-width: 80%;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+  }
+  .close-modal {
+    color: #aaa;
+    float: right;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: -10px;
+  }
+  .close-modal:hover,
+  .close-modal:focus {
+    color: #333;
+  }
+  
+  /* ===========================
+     10. Responsive Styles
+     =========================== */
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      background: rgba(184, 146, 108, 0.95);
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+    .nav-links.nav-active {
+      display: flex;
+    }
+    .hamburger {
+      display: flex;
+    }
+  
+    .education-container,
+    .skills-container,
+    .experience-container,
+    .projects-container {
+      flex-direction: column;
+      align-items: center;
+    }
+    .hero h1 {
+      font-size: 2rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+    }
+    .hero-content {
+      padding: 1.5rem;
+    }
+  }
+  

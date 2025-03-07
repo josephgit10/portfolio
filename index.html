@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Joseph Thomas | Portfolio</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Header & Navigation -->
+  <!-- Navigation Bar -->
   <header>
     <nav class="navbar">
       <div class="logo">Joseph Thomas</div>
@@ -26,18 +26,24 @@
         <span></span>
       </div>
     </nav>
-    <!-- Hero Section -->
-    <section id="home" class="hero">
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
       <h1>Hello, I'm Joseph Thomas</h1>
       <p>Robotics Engineer | AI Applications Developer | Innovator</p>
-      <a href="#contact" class="btn">Get In Touch</a>
-    </section>
-  </header>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn">Get In Touch</a>
+        <button class="btn resume-modal-trigger">View Resume</button>
+      </div>
+    </div>
+  </section>
 
   <!-- Main Content -->
   <main>
     <!-- About Section -->
-    <section id="about">
+    <section id="about" class="hidden">
       <h2>About Me</h2>
       <p>
         I am a passionate Robotics Engineer and AI Applications Developer with expertise in computer vision,
@@ -48,7 +54,7 @@
     </section>
 
     <!-- Education Section -->
-    <section id="education">
+    <section id="education" class="hidden">
       <h2>Education</h2>
       <div class="education-container">
         <div class="education-item">
@@ -67,7 +73,7 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills">
+    <section id="skills" class="hidden">
       <h2>Technical Skills</h2>
       <div class="skills-container">
         <div class="skill-group">
@@ -92,7 +98,7 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience">
+    <section id="experience" class="hidden">
       <h2>Professional Experience</h2>
       <div class="experience-container">
         <div class="experience-item">
@@ -111,7 +117,7 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects">
+    <section id="projects" class="hidden">
       <h2>Projects</h2>
       <div class="projects-container">
         <div class="project-card">
@@ -166,7 +172,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact">
+    <section id="contact" class="hidden">
       <h2>Contact</h2>
       <div class="contact-container">
         <p>If you'd like to get in touch, drop me a message below:</p>
@@ -188,6 +194,15 @@
   <footer>
     <p>&copy; 2025 Joseph Thomas. All rights reserved.</p>
   </footer>
+
+  <!-- Resume Modal -->
+  <div class="modal" id="resume-modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <!-- Embed the PDF inside an iframe -->
+      <iframe src="Joseph_Thomas_Resume.pdf" width="100%" height="600px" title="Resume"></iframe>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>

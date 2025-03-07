@@ -8,9 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Intersection Observer for fade-in sections
   const fadeSections = document.querySelectorAll('.fade-section');
-  const observerOptions = {
-    threshold: 0.1
-  };
+  const observerOptions = { threshold: 0.1 };
   const sectionObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {

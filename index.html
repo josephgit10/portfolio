@@ -7,17 +7,16 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Navigation Bar -->
+  <!-- Navigation -->
   <header>
     <nav class="navbar">
       <div class="logo">Joseph Thomas</div>
       <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#skills">Skills</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <div class="hamburger">
@@ -29,21 +28,17 @@
   </header>
 
   <!-- Hero Section -->
-  <section id="home" class="hero">
-    <div class="hero-content">
-      <h1>Hello, I'm Joseph Thomas</h1>
-      <p>Robotics Engineer | AI Applications Developer | Innovator</p>
-      <div class="hero-buttons">
-        <a href="#contact" class="btn">Get In Touch</a>
-        <button class="btn resume-modal-trigger">View Resume</button>
-      </div>
-    </div>
+  <section class="hero">
+    <h1>Hello, I'm Joseph Thomas</h1>
+    <p>Robotics Engineer | AI Applications Developer | Innovator</p>
+    <!-- Button to Open Resume Modal -->
+    <button class="btn" data-modal-target="#resumeModal">View Resume</button>
   </section>
 
   <!-- Main Content -->
   <main>
-    <!-- About Section -->
-    <section id="about" class="hidden">
+    <!-- About Me -->
+    <section id="about" class="fade-section">
       <h2>About Me</h2>
       <p>
         I am a passionate Robotics Engineer and AI Applications Developer with expertise in computer vision,
@@ -53,140 +48,82 @@
       </p>
     </section>
 
-    <!-- Education Section -->
-    <section id="education" class="hidden">
-      <h2>Education</h2>
-      <div class="education-container">
-        <div class="education-item">
-          <h3>University of Maryland - College Park</h3>
-          <p><strong>M.Eng. in Robotics</strong> (May 2024)</p>
-          <p>Specializations: Computer Vision, Robot Algorithms, Machine Learning, Data Science</p>
-          <p>GPA: 3.38/4.0</p>
-        </div>
-        <div class="education-item">
-          <h3>Maharashtra Institute of Technology - Pune</h3>
-          <p><strong>B.Tech. in Mechanical (Robotics and Automation)</strong> (May 2022)</p>
-          <p>Specializations: Robot Modelling, Perception, IoT</p>
-          <p>GPA: 3.5/4.0</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="hidden">
-      <h2>Technical Skills</h2>
-      <div class="skills-container">
-        <div class="skill-group">
-          <h3>Programming Languages</h3>
-          <p>C++, Python, Matlab, SQL</p>
-        </div>
-        <div class="skill-group">
-          <h3>Technologies &amp; Frameworks</h3>
-          <p>
-            Linux, ROS/ROS2, OpenCV, Git, AWS, Docker, PyTorch, NumPy, CUDA, Solidworks, Gazebo,
-            Fusion 360, MoveIt, FastAPI
-          </p>
-        </div>
-        <div class="skill-group">
-          <h3>Interests</h3>
-          <p>
-            SLAM, Vision, Perception &amp; Navigation, Large Language Models (LLMs), Model Fine-Tuning (PEFT, LoRA, Quantization),
-            Prompt Engineering, Deep Learning, Data Science, Sensor Fusion, Reinforcement Learning
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="hidden">
+    <!-- Professional Experience -->
+    <section id="experience" class="fade-section">
       <h2>Professional Experience</h2>
-      <div class="experience-container">
-        <div class="experience-item">
-          <h3>Health4theWorld</h3>
-          <p><strong>AI Applications Developer</strong> | Feb 2025 – Present | Carmel, CA, USA</p>
+      <div class="logo-grid">
+        <!-- 1. Health4theWorld -->
+        <div class="experience-item" data-modal-target="#exp-h4tw">
+          <img src="img/h4tw.png" alt="Health4theWorld Logo" />
+          <span>Health4theWorld</span>
         </div>
-        <div class="experience-item">
-          <h3>Void Robotics</h3>
-          <p><strong>Robotics Software Engineer</strong> | Aug 2024 – Jan 2025 | Marathon, FL, USA</p>
+        <!-- 2. Void Robotics -->
+        <div class="experience-item" data-modal-target="#exp-void">
+          <img src="img/void.png" alt="Void Robotics Logo" />
+          <span>Void Robotics</span>
         </div>
-        <div class="experience-item">
-          <h3>Defense Research and Development Organization (DRDO)</h3>
-          <p><strong>Robotics R&D Intern</strong> | Nov 2021 – Apr 2022 | Pune, MH, India</p>
+        <!-- 3. DRDO -->
+        <div class="experience-item" data-modal-target="#exp-drdo">
+          <img src="img/drdo.png" alt="DRDO Logo" />
+          <span>DRDO</span>
         </div>
       </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="hidden">
+    <!-- Projects -->
+    <section id="projects" class="fade-section">
       <h2>Projects</h2>
-      <div class="projects-container">
-        <div class="project-card">
-          <h3>Image Deblurring Using Hybrid Neural Networks</h3>
-          <p><strong>Dec 2024 – Feb 2025</strong></p>
-          <p>
-            Developed an advanced image deblurring pipeline using a hybrid model that integrates CNNs and transformers.
-            Achieved PSNR: 23.47 dB and SSIM: 0.6929 with potential for further improvement.
-          </p>
+      <div class="project-list">
+        <!-- Each project name triggers a popup -->
+        <div class="project-item" data-modal-target="#proj-deblur">Image Deblurring Using Hybrid Neural Networks</div>
+        <div class="project-item" data-modal-target="#proj-vehicle">Vehicle Speed Estimation using Optical Flow</div>
+        <div class="project-item" data-modal-target="#proj-stock">Stock Forecasting with LSTM and Keras Tuner</div>
+        <div class="project-item" data-modal-target="#proj-hate">Enhancing Efficiency in Hate-Speech Detection</div>
+        <div class="project-item" data-modal-target="#proj-rrt">Implementation of Informed RRT* for Optimal Trajectory</div>
+        <div class="project-item" data-modal-target="#proj-kuka">Design and Simulation of KUKA youBot</div>
+      </div>
+    </section>
+
+    <!-- Technical Skills -->
+    <section id="skills" class="fade-section">
+      <h2>Technical Skills</h2>
+      <p>
+        <strong>Programming Languages:</strong> C++, Python, Matlab, SQL <br/>
+        <strong>Technologies &amp; Frameworks:</strong> Linux, ROS/ROS2, OpenCV, Git, AWS, Docker, PyTorch, NumPy, CUDA, 
+        Solidworks, Gazebo, Fusion 360, MoveIt, FastAPI <br/>
+        <strong>Interests:</strong> SLAM, Vision, Perception &amp; Navigation, Large Language Models (LLMs),
+        Model Fine-Tuning (PEFT, LoRA, Quantization), Prompt Engineering, Deep Learning, Data Science,
+        Sensor Fusion, Reinforcement Learning
+      </p>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="fade-section">
+      <h2>Education</h2>
+      <div class="logo-grid">
+        <!-- University of Maryland -->
+        <div class="edu-item" data-modal-target="#edu-umd">
+          <img src="img/umd.png" alt="UMD Logo" />
+          <span>University of Maryland</span>
         </div>
-        <div class="project-card">
-          <h3>Vehicle Speed Estimation using Optical Flow</h3>
-          <p><strong>Apr 2023 – May 2023</strong></p>
-          <p>
-            Implemented optical flow algorithms (Lucas-Kanade, Farneback, RAFT) on embedded hardware (Raspberry Pi 4, Pi Camera)
-            to convert pixel velocities into real-world speed metrics in real time.
-          </p>
-        </div>
-        <div class="project-card">
-          <h3>Stock Forecasting with LSTM and Keras Tuner</h3>
-          <p><strong>Jun 2024 – Aug 2024</strong></p>
-          <p>
-            Engineered a data pipeline that integrated historical stock data and technical indicators. Optimized an LSTM model
-            with hyperparameter tuning to achieve RMSE: 11.99 and MAPE: 2.07%.
-          </p>
-        </div>
-        <div class="project-card">
-          <h3>Enhancing Efficiency in Hate-Speech Detection</h3>
-          <p><strong>Sep 2023 – Jan 2024</strong></p>
-          <p>
-            Developed an ML pipeline with advanced preprocessing and knowledge distillation using TinyBERT/DistilBERT,
-            reducing model size by 25× and accelerating prediction time while improving accuracy.
-          </p>
-        </div>
-        <div class="project-card">
-          <h3>Implementation of Informed RRT* for Optimal Trajectory</h3>
-          <p><strong>Apr 2023 – May 2023</strong></p>
-          <p>
-            Developed an Informed RRT* planning algorithm in Python for efficient trajectory planning in ROS/Gazebo simulations,
-            reducing convergence time by 30% and overall path cost by 20%.
-          </p>
-        </div>
-        <div class="project-card">
-          <h3>Design and Simulation of KUKA youBot</h3>
-          <p><strong>Nov 2022 – Dec 2022</strong></p>
-          <p>
-            Formulated forward and inverse kinematics for a 5-DOF robotic arm using DH parameters.
-            Achieved ±0.5 cm accuracy and a 95% task completion rate in simulation environments.
-          </p>
+        <!-- Maharashtra Institute of Technology -->
+        <div class="edu-item" data-modal-target="#edu-mitp">
+          <img src="img/mitp.png" alt="MIT Pune Logo" />
+          <span>MIT Pune</span>
         </div>
       </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="hidden">
+    <!-- Contact -->
+    <section id="contact" class="fade-section">
       <h2>Contact</h2>
-      <div class="contact-container">
-        <p>If you'd like to get in touch, drop me a message below:</p>
-        <form action="mailto:josephthomas2222@gmail.com" method="post" enctype="text/plain">
-          <input type="text" name="name" placeholder="Your Name" required />
-          <input type="email" name="email" placeholder="Your Email" required />
-          <textarea name="message" placeholder="Your Message" required></textarea>
-          <button type="submit">Send Message</button>
-        </form>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/joseph-thomas10/" target="_blank">LinkedIn</a>
-          <a href="https://github.com/josephgit10" target="_blank">GitHub</a>
-        </div>
-      </div>
+      <p>If you'd like to get in touch, drop me a message below:</p>
+      <form action="mailto:josephthomas2222@gmail.com" method="post" enctype="text/plain">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
     </section>
   </main>
 
@@ -195,14 +132,130 @@
     <p>&copy; 2025 Joseph Thomas. All rights reserved.</p>
   </footer>
 
+  <!-- =================== MODALS =================== -->
+
   <!-- Resume Modal -->
-  <div class="modal" id="resume-modal">
+  <div class="modal" id="resumeModal">
     <div class="modal-content">
-      <span class="close-modal">&times;</span>
-      <!-- Embed the PDF inside an iframe -->
-      <iframe src="Joseph_Thomas_Resume.pdf" width="100%" height="600px" title="Resume"></iframe>
+      <span class="close-btn" data-close>&times;</span>
+      <h2>My Resume</h2>
+      <!-- Embed your PDF or provide a direct link -->
+      <object data="Joseph_Thomas_Resume.pdf" type="application/pdf" width="100%" height="500px">
+        <p>
+          It appears you don't have a PDF plugin. 
+          <a href="Joseph_Thomas_Resume.pdf" target="_blank">Click here</a> to view the resume.
+        </p>
+      </object>
     </div>
   </div>
+
+  <!-- Experience Modals -->
+  <div class="modal" id="exp-h4tw">
+    <div class="modal-content">
+      <span class="close-btn" data-close>&times;</span>
+      <h3>Health4theWorld</h3>
+      <p><strong>Role:</strong> AI Applications Developer</p>
+      <p><strong>Duration:</strong> Feb 2025 – Present</p>
+      <p><strong>Location:</strong> Carmel, CA, USA</p>
+    </div>
+  </div>
+  <div class="modal" id="exp-void">
+    <div class="modal-content">
+      <span class="close-btn" data-close>&times;</span>
+      <h3>Void Robotics</h3>
+      <p><strong>Role:</strong> Robotics Software Engineer</p>
+      <p><strong>Duration:</strong> Aug 2024 – Jan 2025</p>
+      <p><strong>Location:</strong> Marathon, FL, USA</p>
+    </div>
+  </div>
+  <div class="modal" id="exp-drdo">
+    <div class="modal-content">
+      <span class="close-btn" data-close>&times;</span>
+      <h3>DRDO</h3>
+      <p><strong>Role:</strong> Robotics R&D Intern</p>
+      <p><strong>Duration:</strong> Nov 2021 – Apr 2022</p>
+      <p><strong>Location:</strong> Pune, MH, India</p>
+    </div>
+  </div>
+
+  <!-- Projects Modals -->
+  <div class="modal" id="proj-deblur">
+    <div class="modal-content">
+      <span class="close-btn" data-close>&times;</span>
+      <h3>Image Deblurring Using Hybrid Neural Networks</h3>
+      <p><strong>Duration:</strong> Dec 2024 – Feb 2025</p>
+      <p>Advanced image deblurring pipeline integrating CNNs &amp; transformers.</p>
+      <p><a href="https://github.com/josephgit10/image-deblurring" target="_blank">View on GitHub</a></p>
+    </div>
+  </div>
+  <div class="modal" id="proj-vehicle">
+    <div class="modal-content">
+      <span class="close-btn" data-close>&times;</span>
+      <h3>Vehicle Speed Estimation using Optical Flow</h3>
+      <p><strong>Duration:</strong> Apr 2023 – May 2023</p>
+      <p>Implemented optical flow algorithms on embedded hardware for real-time speed metrics.</p>
+      <p><a href="https://github.com/josephgit10/Vehicle-Speed-Calculation-using-Optical-Flow" target="_blank">View on GitHub</a></p>
+    </div>
+  </div>
+  <div class="modal" id="proj-stock">
+    <div class="modal-content">
+      <span class="close-btn" data-close>&times;</span>
+      <h3>Stock Forecasting with LSTM and Keras Tuner</h3>
+      <p><strong>Duration:</strong> Jun 2024 – Aug 2024</p>
+      <p>Data pipeline with LSTM hyperparameter tuning for improved stock predictions.</p>
+      <p><a href="https://github.com/yourusername/stock_forecasting_advanced" target="_blank">View on GitHub</a></p>
+    </div>
+  </div>
+  <div class="modal" id="proj-hate">
+    <div class="modal-content">
+      <span class="close-btn" data-close>&times;</span>
+      <h3>Enhancing Efficiency in Hate-Speech Detection</h3>
+      <p><strong>Duration:</strong> Sep 2023 – Jan 2024</p>
+      <p>ML pipeline with knowledge distillation, reducing model size by 25×.</p>
+      <p><a href="https://github.com/josephgit10/knowledge-distillation-bert" target="_blank">View on GitHub</a></p>
+    </div>
+  </div>
+  <div class="modal" id="proj-rrt">
+    <div class="modal-content">
+      <span class="close-btn" data-close>&times;</span>
+      <h3>Implementation of Informed RRT* for Optimal Trajectory</h3>
+      <p><strong>Duration:</strong> Apr 2023 – May 2023</p>
+      <p>Efficient path planning in ROS/Gazebo, reducing convergence time by 30%.</p>
+      <p><a href="https://github.com/josephgit10/Informed-RRT-star" target="_blank">View on GitHub</a></p>
+    </div>
+  </div>
+  <div class="modal" id="proj-kuka">
+    <div class="modal-content">
+      <span class="close-btn" data-close>&times;</span>
+      <h3>Design and Simulation of KUKA youBot</h3>
+      <p><strong>Duration:</strong> Nov 2022 – Dec 2022</p>
+      <p>Forward/Inverse kinematics for 5-DOF arm with ±0.5 cm accuracy.</p>
+      <p><a href="https://github.com/josephgit10/kuka-youbot-simulation-and-design" target="_blank">View on GitHub</a></p>
+    </div>
+  </div>
+
+  <!-- Education Modals -->
+  <div class="modal" id="edu-umd">
+    <div class="modal-content">
+      <span class="close-btn" data-close>&times;</span>
+      <h3>University of Maryland - College Park</h3>
+      <p><strong>Graduation Date:</strong> May 2024</p>
+      <p><strong>Specializations:</strong> Computer Vision, Robot Algorithms, Machine Learning, Data Science</p>
+      <p><strong>GPA:</strong> 3.38/4.0</p>
+    </div>
+  </div>
+  <div class="modal" id="edu-mitp">
+    <div class="modal-content">
+      <span class="close-btn" data-close>&times;</span>
+      <h3>Maharashtra Institute of Technology - Pune</h3>
+      <p><strong>Graduation Date:</strong> May 2022</p>
+      <p><strong>Specializations:</strong> Robot Modelling, Perception, IoT</p>
+      <p><strong>GPA:</strong> 3.5/4.0</p>
+    </div>
+  </div>
+
+  <!-- Background Overlay for Modals -->
+  <div id="overlay"></div>
 
   <script src="script.js"></script>
 </body>

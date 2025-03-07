@@ -1,47 +1,65 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Hamburger menu toggle
+  // Hamburger menu
   const hamburger = document.querySelector('.hamburger');
   const navLinks = document.querySelector('.nav-links');
   hamburger.addEventListener('click', () => {
     navLinks.classList.toggle('nav-active');
   });
 
-  // Fade-in effect on scroll using IntersectionObserver
-  const sections = document.querySelectorAll('section.hidden');
-  const options = { threshold: 0.1 };
-
-  const observer = new IntersectionObserver((entries, observer) => {
+  // Intersection Observer for fade-in sections
+  const fadeSections = document.querySelectorAll('.fade-section');
+  const observerOptions = {
+    threshold: 0.1
+  };
+  const sectionObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('fade-in');
         observer.unobserve(entry.target);
       }
     });
-  }, options);
+  }, observerOptions);
 
-  sections.forEach(section => {
-    observer.observe(section);
+  fadeSections.forEach(sec => {
+    sectionObserver.observe(sec);
   });
 
-  // Modal functionality
-  const resumeModalTrigger = document.querySelector('.resume-modal-trigger');
-  const resumeModal = document.getElementById('resume-modal');
-  const closeModalBtn = document.querySelector('.close-modal');
+  // Modal logic
+  const openModalButtons = document.querySelectorAll('[data-modal-target]');
+  const closeModalButtons = document.querySelectorAll('[data-close]');
+  const overlay = document.getElementById('overlay');
 
-  // Open modal
-  resumeModalTrigger.addEventListener('click', () => {
-    resumeModal.style.display = 'block';
+  openModalButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const modalSelector = button.getAttribute('data-modal-target');
+      const modal = document.querySelector(modalSelector);
+      openModal(modal);
+    });
   });
 
-  // Close modal
-  closeModalBtn.addEventListener('click', () => {
-    resumeModal.style.display = 'none';
+  closeModalButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const modal = button.closest('.modal');
+      closeModal(modal);
+    });
   });
 
-  // Close modal when clicking outside modal content
-  window.addEventListener('click', (e) => {
-    if (e.target === resumeModal) {
-      resumeModal.style.display = 'none';
-    }
+  overlay.addEventListener('click', () => {
+    const modals = document.querySelectorAll('.modal.active');
+    modals.forEach(modal => {
+      closeModal(modal);
+    });
   });
+
+  function openModal(modal) {
+    if (modal == null) return;
+    modal.classList.add('active');
+    overlay.classList.add('active');
+  }
+
+  function closeModal(modal) {
+    if (modal == null) return;
+    modal.classList.remove('active');
+    overlay.classList.remove('active');
+  }
 });

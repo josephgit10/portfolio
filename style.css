@@ -1,0 +1,221 @@
+/* Reset & Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+  }
+  
+  /* Resume Button */
+  .resume-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #f0a500;
+    color: #333;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    z-index: 1000;
+    font-weight: bold;
+    transition: background 0.3s ease;
+  }
+  .resume-btn:hover {
+    background: #e0a400;
+  }
+  
+  /* Navigation */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #333;
+    padding: 1rem 2rem;
+    position: relative;
+  }
+  .navbar .logo {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  .nav-links {
+    list-style: none;
+    display: flex;
+  }
+  .nav-links li {
+    margin-left: 1.5rem;
+  }
+  .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  .nav-links a:hover {
+    color: #f0a500;
+  }
+  
+  /* Hamburger Menu for Mobile */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  .hamburger span {
+    background: #fff;
+    height: 3px;
+    width: 25px;
+    margin: 4px 0;
+    transition: all 0.3s;
+  }
+  
+  /* Hero Section */
+  .hero {
+    background: url('hero-bg.jpg') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    padding: 0 20px;
+  }
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  .hero p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .hero .btn {
+    padding: 0.75rem 1.5rem;
+    background: #f0a500;
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+  }
+  .hero .btn:hover {
+    background: #e0a400;
+  }
+  
+  /* Section Styling */
+  section {
+    padding: 60px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+  }
+  
+  /* Containers for Education, Skills, Experience & Projects */
+  .education-container,
+  .skills-container,
+  .experience-container,
+  .projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+  }
+  .education-item,
+  .skill-group,
+  .experience-item,
+  .project-card {
+    background: #f4f4f4;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    flex: 1 1 300px;
+    max-width: 400px;
+  }
+  
+  /* Experience List Styling */
+  .experience-item p {
+    margin-top: 0.5rem;
+  }
+  
+  /* Contact Form */
+  .contact-container {
+    text-align: center;
+  }
+  .contact-container form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .contact-container input,
+  .contact-container textarea {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  .contact-container button {
+    padding: 10px;
+    border: none;
+    background: #333;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  .contact-container button:hover {
+    background: #555;
+  }
+  .social-links {
+    margin-top: 1rem;
+  }
+  .social-links a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+  }
+  .social-links a:hover {
+    color: #f0a500;
+  }
+  
+  /* Footer */
+  footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      background: #333;
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      padding: 1rem;
+    }
+    .nav-links.nav-active {
+      display: flex;
+    }
+    .hamburger {
+      display: flex;
+    }
+    .education-container,
+    .skills-container,
+    .experience-container,
+    .projects-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
